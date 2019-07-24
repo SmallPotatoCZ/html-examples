@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bing Viewport</title>
+    <link rel="stylesheet" href="css/bing-viewport.css">
+</head>
+
+<body>
+    <div id="header-wrap">
+        <div id="header-nav-wrap">
+            <div class="nav"></div>
+        </div>
+    </div>
+    <div id="main-wrap">
+        <div id="main-nav-wrap">
+            <div class="nav"></div>
+        </div>
+        <div id="content-wrap">
+            <div class="cnt"></div>
+            <div class="cnt"></div>
+            <div class="cnt"></div>
+            <div class="cnt"></div>
+            <div class="cnt"></div>
+            <div class="cnt"></div>
+            <div class="cnt"></div>
+            <div class="cnt"></div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            const headerNav = document.querySelector("#header-nav-wrap>.nav");
+            const mainNav = document.querySelector("#main-nav-wrap>.nav");
+
+            function getScrollY() {
+                var scrOfY = 0;
+                if (typeof (window.pageYOffset) == 'number') {
+                    scrOfY = window.pageYOffset;
+
+                } else if (document.body && document.body.scrollTop) {
+                    scrOfY = document.body.scrollTop;
+                }
+                return scrOfY;
+            }
+            window.addEventListener("scroll", function () {
+                if (getScrollY() > 120) {
+                    headerNav.classList.add('stcky');
+                } else {
+                    headerNav.classList.remove('stcky')
+                }
+                if (getScrollY() > 500) {
+                    mainNav.classList.add('stcky');
+                } else {
+                    mainNav.classList.remove('stcky')
+                }
+                console.log('sdfsdf', getScrollY());
+            }, false);
+        })()
+    </script>
+</body>
+
+</html>
